@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "a67aba98-3bba-43ee-9cac-242e2597f221",
+		"name": "Capstone-NoteApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NOTES",
+			"item": [
+				{
+					"name": "Get all Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/notes",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Looking for new job\",\n\t\"dueDate\": \"2020-3-1\"\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/notes",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Started New Job\",\n\t\"dueDate\": \"2020-3-20\",\n\t\"done\": true\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/notes/c2b87599-0766-46d7-bbc6-7dd5044cf5fb",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"notes",
+								"c2b87599-0766-46d7-bbc6-7dd5044cf5fb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/notes/b0ecc7a0-6df3-416d-9d1b-85df7a4a6059",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"notes",
+								"b0ecc7a0-6df3-416d-9d1b-85df7a4a6059"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attachment URL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-1.amazonaws.com/dev/notes/c2b87599-0766-46d7-bbc6-7dd5044cf5fb/attachment",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"notes",
+								"c2b87599-0766-46d7-bbc6-7dd5044cf5fb",
+								"attachment"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ce2b42d4-8cc5-4f30-a6ed-e7f0f303c3fd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "efb16c49-3866-4241-97d1-360ad72736d8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2e83c0fe-6650-44d5-a90f-4c27ff720d83",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "977c227e-2df3-42eb-9a48-ec25e2f7eeae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4add4ac9-2b2d-4db9-9885-e2a9f505a8bd",
+			"key": "apiId",
+			"value": "59yr89myyg",
+			"type": "string"
+		},
+		{
+			"id": "82564d21-6f05-4465-8e46-cd872d7e9d2a",
+			"key": "authToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik16QXpNelJDUVVZM1F6VkRNamt5UWpaQ1F6RkROa1pFT1RFMlJqRTBNVGsyTXprNU4wRTBNdyJ9.eyJpc3MiOiJodHRwczovL25vdGUtYXBwLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDExMDk1MTg4OTMyNDg0MTc2NDU1MCIsImF1ZCI6IjFGaFFOd1FobHczMGwzaXRMYTNuVDFpd2M4UTgyWWZzIiwiaWF0IjoxNTgyOTIzMDkzLCJleHAiOjE1ODI5NTkwOTMsImF0X2hhc2giOiJBMmhZQ3FiUmtYVzVOcDFBaXY3dXJnIiwibm9uY2UiOiJVYnF3d2Q4MzNxdUFJREZsb1NnTllRbmppbHhvRU9JcCJ9.sylrDKERnukLHSJqyqOtyGrSTpBX8woW9Rhi0zjKnrRF4laI33KXHCZ7QeDbHpmVnGyMwmTT-NulzKBuIvfka9v_6JB8J4qY9ZnTIHE3fUKA4FV9qJR7Ia45X4LLxy1_IMfovrgUMNwrmFbZb4pd6xdBtxaMcpI9-j2BqVV0UcFw6nrD7oZ11-62GFdEr7HFaIRuTHx7wMnzj5B4v8MeF5TQ_6PppMvNgJJX-l6l2ZxGFwcFuZbFbNM_7GgsDm3GfUesVgydksObb2Cq_QpWo5oMRxmJP3Xy8T64-McX_uvjurA0Soqx-I8ueD2dNL6vVxvPVR7ySqG0vCW212eBNA",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
