@@ -45,19 +45,30 @@ export class Notes extends React.PureComponent<NotesProps, NoteState> {
   }
 
   onNoteCreate = async (event: React.ChangeEvent<HTMLButtonElement>) => {
-    try {
-      const dueDate = this.calculateDueDate()
-      const newNote = await createNote(this.props.auth.getIdToken(), {
+    let promise: Promise<any> = Promise.resolve();
+
+    promise = promise.then(() => {
+      const dueDate = this.calculateDueDate();
+
+      return createNote(this.props.auth.getIdToken(), {
         name: this.state.newNoteName,
         dueDate
-      })
-      this.setState({
-        notes: [...this.state.notes, newNote],
-        newNoteName: ''
-      })
-    } catch {
-      alert('note creation failed')
-    }
+      }).then(res => {
+        if (res) {
+          console.log(res);
+          this.setState({
+            notes: [...this.state.notes, res],
+            newNoteName: ''
+          });
+        }
+      });
+    });
+
+    promise = promise.catch(e => {
+      alert('note creation failed');
+    });
+
+    return promise;
   }
 
   onNoteDelete = async (itemId: string) => {

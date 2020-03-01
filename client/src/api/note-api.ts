@@ -21,13 +21,18 @@ export async function createNote(
   idToken: string,
   newNote: CreateNoteRequest
 ): Promise<Note> {
-  const response = await Axios.post(`${apiEndpoint}/notes`,  JSON.stringify(newNote), {
+  let promise: Promise<Note>;
+
+  promise = Axios.post(`${apiEndpoint}/notes`,  JSON.stringify(newNote), {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
     }
-  })
-  return response.data.items
+  }).then(res => {
+    return Promise.resolve(res.data.items);
+  });
+
+  return promise;
 }
 
 export async function patchNote(
